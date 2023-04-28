@@ -1,5 +1,6 @@
 package utilityPackage;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -16,7 +17,7 @@ public class DataReader
 	{
 	String cellValue= "";
 	
-	String path = System.getProperty("user.dir")+"src\\test\\resources\\TestData\\TestData.xlsx";
+	String path = System.getProperty("user.dir")+File.separator+"src\\test\\resources\\TestData\\TestData.xlsx";
 	
 	FileInputStream file= new FileInputStream(path);
 	

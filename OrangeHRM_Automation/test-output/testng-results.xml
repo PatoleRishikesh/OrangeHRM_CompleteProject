@@ -2,16 +2,39 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-04-28T02:27:24 IST" name="Default suite" finished-at="2023-04-28T02:27:24 IST" duration-ms="106">
+  <suite started-at="2023-04-28T12:38:00 IST" name="Default suite" finished-at="2023-04-28T12:38:19 IST" duration-ms="18617">
     <groups>
     </groups>
-    <test started-at="2023-04-28T02:27:24 IST" name="Default test" finished-at="2023-04-28T02:27:24 IST" duration-ms="106">
-      <class name="testPackage.Demo">
-        <test-method signature="demo()[pri:0, instance:testPackage.Demo@49139829]" started-at="2023-04-28T02:27:24 IST" name="demo" finished-at="2023-04-28T02:27:24 IST" duration-ms="35" status="PASS">
+    <test started-at="2023-04-28T12:38:00 IST" name="Default test" finished-at="2023-04-28T12:38:19 IST" duration-ms="18617">
+      <class name="testPackage.TC_LoginPage">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testPackage.TC_LoginPage@313ac989]" started-at="2023-04-28T12:38:00 IST" name="setUp" finished-at="2023-04-28T12:38:13 IST" duration-ms="12420" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- demo -->
-      </class> <!-- testPackage.Demo -->
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="objectInit()[pri:0, instance:testPackage.TC_LoginPage@313ac989]" started-at="2023-04-28T12:38:13 IST" name="objectInit" finished-at="2023-04-28T12:38:13 IST" duration-ms="42" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- objectInit -->
+        <test-method signature="userLogin()[pri:0, instance:testPackage.TC_LoginPage@313ac989]" started-at="2023-04-28T12:38:13 IST" name="userLogin" finished-at="2023-04-28T12:38:18 IST" duration-ms="5645" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:testPackage.TC_LoginPage@313ac989]" started-at="2023-04-28T12:38:18 IST" name="afterMethod" finished-at="2023-04-28T12:38:18 IST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=userLogin status=SUCCESS method=TC_LoginPage.userLogin()[pri:0, instance:testPackage.TC_LoginPage@313ac989] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testPackage.TC_LoginPage@313ac989]" started-at="2023-04-28T12:38:18 IST" name="tearDown" finished-at="2023-04-28T12:38:19 IST" duration-ms="415" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testPackage.TC_LoginPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
