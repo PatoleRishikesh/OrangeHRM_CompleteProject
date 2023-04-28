@@ -3,6 +3,14 @@ package testPackage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pomPackage.LoginPom;
@@ -28,11 +36,13 @@ public class TC_LoginPage
 	LoginPom login; 
 	DataReader data;
 	String url="https://opensource-demo.orangehrmlive.com/";
-	
+	ExtentReports ext;
+	ExtentTest test;
 	
 	@BeforeClass
 	  public void setUp() 
 	 {
+		ext= utilityPackage.ExtentReports.reportSetUp("Automation Report", "LoginPage"); 
 		 driver=LaunchBrowser.OpenBrowser("chrome");
 		 driver.navigate().to(url);
 		 driver.manage().window().maximize();
@@ -50,9 +60,9 @@ public class TC_LoginPage
 	@Test
   	public void userLogin() throws EncryptedDocumentException, IOException 
 	{
-		
+	test = ext.createTest("Valid UserLogin");	
 	login.enterUserName(data.readData(1, 0, "Sheet1"));
-	login.enterPassword(data.readData(0, 1, "Sheet1"));
+	login.enterPassword(data.readData(1, 2, "Sheet1"));
 	login.clickLogin();
 	
 	}
@@ -62,17 +72,23 @@ public class TC_LoginPage
 	{
 		if(result.getStatus()==ITestResult.SUCCESS)
 		{
+			test.log(Status.PASS, "Test Case Passes"+result.getStatus());
 			System.out.println("Test Case Passed");
 		}
 		else if(result.getStatus()==ITestResult.FAILURE)
 		{
-			CaptureScreenshots.capturePageScreenshot(driver);
+						
+			test.log(Status.FAIL, "Test Case Failed"+result.getStatus());
+			test.log(Status.FAIL, result.getTestName()+" Failure Exception : "+result.getThrowable());
 			System.out.println("Test Case Failed");
+			test.addScreenCaptureFromPath(utilityPackage.CaptureScreenshots.capturePageScreenshot(driver));
 			
 		}
 		else if(result.getStatus()==ITestResult.SKIP)
 		{
 			CaptureScreenshots.capturePageScreenshot(driver);
+			test.log(Status.FAIL, "Test Case Skipped"+result.getStatus());
+			test.log(Status.FAIL, result.getTestName()+" Skipped Exception : "+result.getThrowable());
 			System.out.println("Test Case skipped");
 		}
 	}
@@ -83,6 +99,7 @@ public class TC_LoginPage
   public void tearDown() 
   {
 	  driver.quit();
+	  ext.flush();
   }
 
 }

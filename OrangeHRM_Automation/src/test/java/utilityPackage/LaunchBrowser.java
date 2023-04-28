@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-//import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LaunchBrowser 
 {
@@ -19,9 +19,9 @@ static WebDriver driver;
 	{
 		if(browser.equalsIgnoreCase("chrome"))
 		{
-		//	WebDriverManager.chromedriver().setup();
-			String path= System.getProperty("user.dir")+File.separator+"src"+File.separatorChar+"test"+File.separator+"resources"+File.separator+"Browser"+File.separator+"chromedriver.exe";
-			System.setProperty("webdriver.chroome.driver",path); 
+			WebDriverManager.chromedriver().setup();
+			//String path= System.getProperty("user.dir")+File.separator+"src"+File.separatorChar+"test"+File.separator+"resources"+File.separator+"Browser"+File.separator+"chromedriver.exe";
+			//	System.setProperty("webdriver.chroome.driver",path); 
 			ChromeOptions option= new ChromeOptions();
 			option.addArguments("--remote-allow-origins=*");
 			driver= new ChromeDriver(option);
