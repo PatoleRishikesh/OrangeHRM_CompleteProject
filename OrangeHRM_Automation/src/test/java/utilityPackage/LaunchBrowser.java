@@ -1,6 +1,7 @@
 package utilityPackage;
 
 import java.io.File;
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,7 +27,7 @@ static WebDriver driver;
 			option.addArguments("--remote-allow-origins=*");
 			driver= new ChromeDriver(option);
 		}
-	/*	else if(browser.equalsIgnoreCase("edge"))
+		else if(browser.equalsIgnoreCase("edge"))
 		{
 			WebDriverManager.edgedriver().setup();
 			driver= new EdgeDriver();
@@ -35,7 +36,9 @@ static WebDriver driver;
 		{
 			WebDriverManager.firefoxdriver().setup();
 			driver= new FirefoxDriver();
-		}*/
+		}
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().window().maximize();
 		return driver;
 		
 	}

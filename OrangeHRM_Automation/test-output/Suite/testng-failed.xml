@@ -3,15 +3,16 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testPackage.TC_LoginPage">
+      <class name="testPackage.TC_LoginAndLogout">
         <methods>
+          <include name="logoutTest"/>
           <include name="afterMethod"/>
-          <include name="setUp"/>
-          <include name="objectInit"/>
+          <include name="setup"/>
+          <include name="loginTest"/>
           <include name="tearDown"/>
-          <include name="userLogin"/>
+          <include name="initObject"/>
         </methods>
-      </class> <!-- testPackage.TC_LoginPage -->
+      </class> <!-- testPackage.TC_LoginAndLogout -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
